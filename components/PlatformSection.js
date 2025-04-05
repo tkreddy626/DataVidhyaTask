@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image"; // ✅ Import Next.js Image component
 
 const platformCards = [
   {
@@ -43,18 +44,25 @@ const PlatformSection = () => {
   };
 
   return (
-    <section id="platform" className="mt-16 px-4 max-w-7xl mx-auto text-center pt-16 bg-gray-100">
-       {/* Section Title */}
-       <h2 className="text-2xl text-gray-300">Platform</h2>
-      <h2 className="text-5xl font-bold leading-tight text-black">Solve LeetCode like</h2>
+    <section
+      id="platform"
+      className="mt-16 px-4 max-w-7xl mx-auto text-center pt-16 bg-gray-100"
+    >
+      <h2 className="text-2xl text-gray-300">Platform</h2>
+      <h2 className="text-5xl font-bold leading-tight text-black">
+        Solve LeetCode like
+      </h2>
 
       <div className="relative inline-block">
         <h2 className="text-5xl font-bold leading-tight text-black">Problems</h2>
 
         {/* Gradient underline 1 */}
-        {/* Gradient underline 1 */}
-<svg className="absolute -bottom-3 left-[1%]" width="200" height="20" viewBox="0 0 200 20">
-
+        <svg
+          className="absolute -bottom-3 left-[1%]"
+          width="200"
+          height="20"
+          viewBox="0 0 200 20"
+        >
           <path
             d="M0,10 C50,20 150,0 200,10"
             stroke="url(#grad1)"
@@ -70,9 +78,12 @@ const PlatformSection = () => {
         </svg>
 
         {/* Gradient underline 2 */}
-       {/* Gradient underline 2 */}
-<svg className="absolute -bottom-1 left-[1%]" width="220" height="20" viewBox="0 0 220 20">
-
+        <svg
+          className="absolute -bottom-1 left-[1%]"
+          width="220"
+          height="20"
+          viewBox="0 0 220 20"
+        >
           <path
             d="M0,12 C60,22 160,2 220,12"
             stroke="url(#grad2)"
@@ -179,22 +190,26 @@ const PlatformSection = () => {
           )}
         </div>
 
-        {/* Image section */}
+        {/* Optimized Image section */}
         <div className="w-full md:w-[90%] p-4 flex justify-center items-center gap-6 flex-wrap">
           {Array.isArray(platformCards[activeIndex].imgSrc) ? (
             platformCards[activeIndex].imgSrc.map((src, i) => (
-              <img
+              <Image
                 key={i}
-                src={src}
+                src={`/${src}`}
                 alt={`Platform Feature ${i + 1}`}
-                className="w-full sm:w-[45%] h-auto max-w-md rounded-md shadow-lg"
+                width={500}
+                height={300}
+                className="w-full sm:w-[45%] h-auto max-w-md rounded-md shadow-lg object-cover"
               />
             ))
           ) : (
-            <img
-              src={platformCards[activeIndex].imgSrc}
+            <Image
+              src={`/${platformCards[activeIndex].imgSrc}`}
               alt="Platform Feature"
-              className="w-full h-auto max-w-5xl rounded-md"
+              width={600}
+              height={400}
+              className="w-full h-auto max-w-5xl rounded-md object-cover"
             />
           )}
         </div>
