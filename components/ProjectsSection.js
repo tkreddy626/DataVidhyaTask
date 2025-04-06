@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import Image from "next/image"; // ✅ Use Next.js Image
+import Image from "next/image"; 
 
 const ProjectsSection = () => {
   const [activeTab, setActiveTab] = useState("projects");
