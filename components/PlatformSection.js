@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import Image from "next/image"; // ✅ Import Next.js Image component
+import Image from "next/image"; 
 
 const platformCards = [
   {
